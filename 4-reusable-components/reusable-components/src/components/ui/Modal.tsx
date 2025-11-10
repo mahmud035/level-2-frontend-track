@@ -117,8 +117,12 @@ const Modal = ({ isOpen, onClose, children }: TModal) => {
           'flex justify-center items-center fixed inset-0 bg-gray-500/70 z-[999]'
         )}
         onClick={handleOutsideClose}
-        role="dialog"
-        aria-modal="true"
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') onClose();
+        }}
+        role="button"
+        tabIndex={0}
+        aria-label="Close modal"
       >
         <div
           ref={containerRef}
