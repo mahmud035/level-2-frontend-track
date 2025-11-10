@@ -34,12 +34,8 @@ const AddTodoModal = () => {
   // [actualMutationFunction, {data, isLoading, isError, etc}] = useAddTodoMutation()
   const [addTodo, { isLoading, isError }] = useAddTodoMutation();
 
-  if (isLoading) {
-    <p>Loading...</p>;
-  }
-  if (!isLoading && isError) {
-    <p>Something went wrong</p>;
-  }
+  if (isLoading) return <p>Loading...</p>;
+  if (!isLoading && isError) return <p>Something went wrong</p>;
 
   const reset = () => {
     setTitle('');
